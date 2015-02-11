@@ -1,0 +1,10 @@
+ae34c473690253101c017dc45ddb7be5 *DESCRIPTION
+4a4d2d3ff96f4115750fe96cc25bd971 *NAMESPACE
+f480df9cf1e241af220717b595f53967 *NEWS
+371e3742c71b34c29d8da35e18597f11 *R/import_o2.R
+9c06e60ffbc1a037be5688daccf95514 *R/o2_unit_conv.R
+2be91986f26f3681eacebf936777b4fa *R/presens.R
+826eddbd78daf5b2eb768e642c672d82 *inst/extdata/all_o2_units.txt
+3ed32932b8077f375e5e1e963e95d868 *man/import_o2.Rd
+acf04dbee4a25ea30640a0ff9f1e7054 *man/o2_unit_conv.Rd
+9f1017d6a8428e6f0e22916ebcf594af *man/presens.Rd
