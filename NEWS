@@ -1,4 +1,10 @@
 -------------------------------------------------
+version 2.0.0, 2016-03-13
+- import_o2():		when multiple units of O2 are recorded, the notification has been downgraded from a warning to a message.
+- import_o2():		improved speed
+- o2_unit_conv():	MAJOR UPDATE: updated so that any O2 unit can be provided as an argument, not just percent air saturation. No longer backwards compatible with v1.0.0.
+- o2_unit_conv():	added kPa, ml_per_l, mmHg, and inHg as unit options
+-------------------------------------------------
 version 1.0.0, 2015-02-07
 - import_o2():		new function
 - o2_unit_conv():	new function
