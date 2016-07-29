@@ -5,9 +5,9 @@
 \name{presens}
 \alias{presens}
 \alias{presens-package}
-\title{R Interface for PreSens Fiber Optic Data}
+\title{Interface for PreSens Fiber Optic Data}
 \description{
-Makes output files from select PreSens Fiber Optic Oxygen Transmitters easier to work with in R. See \href{http://www.presens.de}{www.presens.de} for more information about PreSens (Precision Sensing GmbH).
+Makes output files from select PreSens Fiber Optic Oxygen Transmitters easier to work with in R. See \href{http://www.presens.de}{www.presens.de} for more information about PreSens (Precision Sensing GmbH). Note: this package is neither created nor maintained by PreSens.
 }
 \author{
 Matthew A. Birk, \email{matthewabirk@gmail.com}

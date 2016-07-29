@@ -1,4 +1,8 @@
 -------------------------------------------------
+version 2.1.0, 2016-07-29
+- last_o2():	new function
+- changed code to use measurements::conv_unit() rather than the defunct birk::conv_unit()
+-------------------------------------------------
 version 2.0.0, 2016-03-13
 - import_o2():		when multiple units of O2 are recorded, the notification has been downgraded from a warning to a message.
 - import_o2():		improved speed

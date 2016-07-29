@@ -50,9 +50,8 @@
 #' \item{ERROR_CODE}{Error code from transmitter. See PreSens user manual for translation of error code.}
 #' }
 #' @author Matthew A. Birk, \email{matthewabirk@@gmail.com}
-#'
 #' @note Conversions are estimates based on the \code{\link[marelac]{marelac}} package and therefore differ slightly from the conversions provided by PreSens.
-#' 
+#' @seealso \code{\link{last_o2}}
 #' @examples
 #' \dontrun{
 #' file <- system.file('extdata', 'all_o2_units.txt', package = 'presens')

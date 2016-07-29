@@ -1,5 +1,5 @@
-# Created by Matthew A. Birk
-# Dependencies: birk, marelac
+# Created by Matthew A. measurements
+# Dependencies: measurements, marelac
 # Converts % air saturation to other O2 units
 # Last updated: Mar 2016
 
@@ -38,31 +38,31 @@
 #' @encoding UTF-8
 #' @export
 #' @import marelac
-#' @import birk
+#' @import measurements
 
 o2_unit_conv = function(o2 = 100, from = 'percent_a.s.', to = 'all', salinity = 35, temp = 25, air_pres = 1.013253){
 	if(from == 'percent_a.s.') perc_a.s. = o2
 	if(from == 'percent_o2') perc_a.s. = o2 / marelac::atmComp('O2')
-	if(from == 'hPa') perc_a.s. = birk::conv_unit(o2, 'hPa', 'atm') * 100 / (air_pres - marelac::vapor(S = salinity, t = temp)) / marelac::atmComp('O2')
-	if(from == 'kPa') perc_a.s. = birk::conv_unit(o2, 'kPa', 'atm') * 100 / (air_pres - marelac::vapor(S = salinity, t = temp)) / marelac::atmComp('O2')
-	if(from == 'torr') perc_a.s. = birk::conv_unit(o2, 'torr', 'atm') * 100 / (air_pres - marelac::vapor(S = salinity, t = temp)) / marelac::atmComp('O2')
-	if(from == 'mmHg') perc_a.s. = birk::conv_unit(o2, 'mmHg', 'atm') * 100 / (air_pres - marelac::vapor(S = salinity, t = temp)) / marelac::atmComp('O2')
-	if(from == 'inHg') perc_a.s. = birk::conv_unit(o2, 'inHg', 'atm') * 100 / (air_pres - marelac::vapor(S = salinity, t = temp)) / marelac::atmComp('O2')
+	if(from == 'hPa') perc_a.s. = measurements::conv_unit(o2, 'hPa', 'atm') * 100 / (air_pres - marelac::vapor(S = salinity, t = temp)) / marelac::atmComp('O2')
+	if(from == 'kPa') perc_a.s. = measurements::conv_unit(o2, 'kPa', 'atm') * 100 / (air_pres - marelac::vapor(S = salinity, t = temp)) / marelac::atmComp('O2')
+	if(from == 'torr') perc_a.s. = measurements::conv_unit(o2, 'torr', 'atm') * 100 / (air_pres - marelac::vapor(S = salinity, t = temp)) / marelac::atmComp('O2')
+	if(from == 'mmHg') perc_a.s. = measurements::conv_unit(o2, 'mmHg', 'atm') * 100 / (air_pres - marelac::vapor(S = salinity, t = temp)) / marelac::atmComp('O2')
+	if(from == 'inHg') perc_a.s. = measurements::conv_unit(o2, 'inHg', 'atm') * 100 / (air_pres - marelac::vapor(S = salinity, t = temp)) / marelac::atmComp('O2')
 	if(from == 'mg_per_l') perc_a.s. = o2 * 100 / marelac::gas_satconc(S = salinity, t = temp, P = air_pres, species = 'O2') / 1e-6 / marelac::molweight('O2') / 1e3
 	if(from == 'umol_per_l') perc_a.s. = o2 * 100 / marelac::gas_satconc(S = salinity, t = temp, P = air_pres, species = 'O2')
-	if(from == 'ml_per_l') perc_a.s. = birk::conv_unit(o2, 'ml', 'l') / marelac::molvol(t = temp, P = air_pres, species = 'O2', quantity = 1 / birk::conv_unit(100 / marelac::gas_satconc(S = salinity, t = temp, P = air_pres, species = 'O2'), 'mol', 'umol'))
+	if(from == 'ml_per_l') perc_a.s. = measurements::conv_unit(o2, 'ml', 'l') / marelac::molvol(t = temp, P = air_pres, species = 'O2', quantity = 1 / measurements::conv_unit(100 / marelac::gas_satconc(S = salinity, t = temp, P = air_pres, species = 'O2'), 'mol', 'umol'))
 	
 	x=list()
 	if(to == 'percent_a.s.' | to == 'all') x$percent_a.s. = perc_a.s.
 	if(to == 'percent_o2' | to == 'all') x$percent_o2 = marelac::atmComp('O2') * perc_a.s.
-	if(to == 'hPa' | to == 'all') x$hPa = birk::conv_unit((air_pres - marelac::vapor(S = salinity, t = temp)) * marelac::atmComp('O2') * perc_a.s. / 100, 'atm', 'hPa')
-	if(to == 'kPa' | to == 'all') x$kPa = birk::conv_unit((air_pres - marelac::vapor(S = salinity, t = temp)) * marelac::atmComp('O2') * perc_a.s. / 100, 'atm', 'kPa')
-	if(to == 'torr' | to == 'all') x$torr = birk::conv_unit((air_pres - marelac::vapor(S = salinity, t = temp)) * marelac::atmComp('O2') * perc_a.s. / 100, 'atm', 'torr')
-	if(to == 'mmHg' | to == 'all') x$mmHg = birk::conv_unit((air_pres - marelac::vapor(S = salinity, t = temp)) * marelac::atmComp('O2') * perc_a.s. / 100, 'atm', 'mmHg')
-	if(to == 'inHg' | to == 'all') x$inHg = birk::conv_unit((air_pres - marelac::vapor(S = salinity, t = temp)) * marelac::atmComp('O2') * perc_a.s. / 100, 'atm', 'inHg')
+	if(to == 'hPa' | to == 'all') x$hPa = measurements::conv_unit((air_pres - marelac::vapor(S = salinity, t = temp)) * marelac::atmComp('O2') * perc_a.s. / 100, 'atm', 'hPa')
+	if(to == 'kPa' | to == 'all') x$kPa = measurements::conv_unit((air_pres - marelac::vapor(S = salinity, t = temp)) * marelac::atmComp('O2') * perc_a.s. / 100, 'atm', 'kPa')
+	if(to == 'torr' | to == 'all') x$torr = measurements::conv_unit((air_pres - marelac::vapor(S = salinity, t = temp)) * marelac::atmComp('O2') * perc_a.s. / 100, 'atm', 'torr')
+	if(to == 'mmHg' | to == 'all') x$mmHg = measurements::conv_unit((air_pres - marelac::vapor(S = salinity, t = temp)) * marelac::atmComp('O2') * perc_a.s. / 100, 'atm', 'mmHg')
+	if(to == 'inHg' | to == 'all') x$inHg = measurements::conv_unit((air_pres - marelac::vapor(S = salinity, t = temp)) * marelac::atmComp('O2') * perc_a.s. / 100, 'atm', 'inHg')
 	if(to == 'mg_per_l' | to == 'all') x$mg_per_l = marelac::gas_satconc(S = salinity, t = temp, P = air_pres, species = 'O2') * 1e-6 * marelac::molweight('O2') * 1e3 * perc_a.s. / 100
 	if(to == 'umol_per_l' | to == 'all') x$umol_per_l = marelac::gas_satconc(S = salinity, t = temp, P = air_pres, species = 'O2') * perc_a.s. / 100
-	if(to == 'ml_per_l' | to == 'all') x$ml_per_l = birk::conv_unit(as.numeric(marelac::molvol(t = temp, P = air_pres, species = 'O2', quantity = birk::conv_unit(marelac::gas_satconc(S = salinity, t = temp, P = air_pres, species = 'O2') * perc_a.s. / 100, 'umol', 'mol'))), 'l', 'ml')
+	if(to == 'ml_per_l' | to == 'all') x$ml_per_l = measurements::conv_unit(as.numeric(marelac::molvol(t = temp, P = air_pres, species = 'O2', quantity = measurements::conv_unit(marelac::gas_satconc(S = salinity, t = temp, P = air_pres, species = 'O2') * perc_a.s. / 100, 'umol', 'mol'))), 'l', 'ml')
 	attr(x$percent_o2, 'names') = NULL
 	attr(x$hPa, 'names') = NULL
 	attr(x$kPa, 'names') = NULL

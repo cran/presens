@@ -73,4 +73,7 @@ import_o2(file, o2_unit = 'umol_per_l', salinity = 25)
 \author{
 Matthew A. Birk, \email{matthewabirk@gmail.com}
 }
+\seealso{
+\code{\link{last_o2}}
+}
 
